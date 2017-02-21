@@ -1,6 +1,5 @@
 package be.pxl.JUnit;
 import org.junit.*;
-import org.junit.runners.Parameterized;
 
 import static org.junit.Assert.*;
 
