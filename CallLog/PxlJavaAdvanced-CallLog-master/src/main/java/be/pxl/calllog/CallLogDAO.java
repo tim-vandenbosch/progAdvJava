@@ -23,6 +23,7 @@ public class CallLogDAO {
     public void insertCallLogList(Collection<CallLog> callLogList) {
         try(Connection con = getConnection();
             PreparedStatement stmt = con.prepareStatement("INSERT INTO `calllog` (`Id`, `Name`, `Date`, `Company`, `Description`, `Priority`, `Status`) VALUES (?,?,?,?,?,?,?)")){
+            System.out.println("Start upload into DB");
             for(CallLog callLog: callLogList){
                 stmt.setInt(1, callLog.getId());
                 stmt.setString(2, callLog.getNaam());
@@ -32,7 +33,9 @@ public class CallLogDAO {
                 stmt.setInt(6, callLog.getPrio());
                 stmt.setString(7, String.valueOf(callLog.getStatus()));
                 stmt.executeUpdate();
+                // System.out.println("Updated log: " + callLog.getId());
             }
+            System.out.println("End upload into DB");
         }
         catch (SQLException sqlE){
             sqlE.printStackTrace();
