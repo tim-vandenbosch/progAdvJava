@@ -1,15 +1,20 @@
-package calllog;
+package be.pxl.calllog;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.attribute.FileAttribute;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -60,7 +65,7 @@ public class CallLogReport {
 		
 		FileWriter writer = new FileWriter(folder + System.getProperty("file.separator")+filename);
 		for (CallLog callLog : callLogList) {
-			writer.write(ICallLogFactory.createCallLogLine(callLog));
+			writer.write(CallLogFactory.createCallLogLine(callLog));
 		}
 		writer.flush();
 		writer.close();

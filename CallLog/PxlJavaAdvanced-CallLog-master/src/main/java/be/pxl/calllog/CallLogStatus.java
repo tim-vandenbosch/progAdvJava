@@ -1,4 +1,4 @@
-package calllog;
+package be.pxl.calllog;
 
 public enum CallLogStatus {
 	OPEN("OPEN"),

@@ -1,4 +1,4 @@
-package calllog;
+package be.pxl.calllog;
 
 import java.time.LocalDate;
 import java.time.ZoneId;

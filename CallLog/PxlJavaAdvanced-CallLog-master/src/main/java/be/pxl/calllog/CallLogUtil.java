@@ -1,11 +1,13 @@
-package calllog;
+package be.pxl.calllog;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.FileVisitOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.text.ParseException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +38,7 @@ public class CallLogUtil {
 				first=false;
 				continue;
 			}
-			callLogCollection.add(ICallLogFactory.createCallLog(callLogLine));
+			callLogCollection.add(CallLogFactory.createCallLog(callLogLine));
 		}
 	}
 
@@ -56,7 +58,7 @@ public class CallLogUtil {
 							try (BufferedReader reader = Files.newBufferedReader(file)) {
 								String calllogLine;
 								while((calllogLine=reader.readLine())!=null) {
-									callLogCollection.add(ICallLogFactory.createCallLog(calllogLine));
+									callLogCollection.add(CallLogFactory.createCallLog(calllogLine));
 								}
 							} catch (IOException e) {
 								System.err.println("Exception reading file " + file.getFileName());

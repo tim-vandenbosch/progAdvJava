@@ -1,4 +1,4 @@
-package calllog;
+package be.pxl.calllog;
 
 
 import java.util.*;
@@ -88,7 +88,7 @@ public class CallLogApp {
 	 * Initialize properties
 	 */
 	private void init() {
-		Properties properties = getApplicationProperties("src/resources/");
+		Properties properties = getApplicationProperties("src/main/resources/");
 		inputFolder = properties.getProperty("inputfolder");
 		outputFolder = properties.getProperty("outputfolder");
 		archiveFolder = properties.getProperty("archivefolder");
