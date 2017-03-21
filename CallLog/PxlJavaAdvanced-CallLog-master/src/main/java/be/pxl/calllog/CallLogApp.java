@@ -36,6 +36,17 @@ public class CallLogApp {
 		
 	}
 
+	public CallLogApp(Boolean insertToDB)
+	{
+		init();
+		Collection<CallLog> callLogList = createCallLogCollection();
+		if (insertToDB){
+			// create CallLogDAO instance
+			CallLogDAO callLogDAO = new CallLogDAO("jdbc:mysql://127.0.0.1/CallLogDB", "root", "");
+			// call callLogDAO.insertCallLogList(callLogList);
+			callLogDAO.insertCallLogList(callLogList);
+		}
+	}
 	/**
 	 * Save archive sorted by date
 	 * @param callLogReport
@@ -129,7 +140,7 @@ public class CallLogApp {
 	}
 	
 	public static void main(String[] args) {
-		new CallLogApp();
+		new CallLogApp(true);
 	}
 
 }

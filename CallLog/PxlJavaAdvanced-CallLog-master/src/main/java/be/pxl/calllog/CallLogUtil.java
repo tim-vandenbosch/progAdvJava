@@ -45,7 +45,7 @@ public class CallLogUtil {
 	/**
 	 * Fill a Collection with CallLogs from a path with csv files
 	 * @param callLogCollection Collection<CallLog>
-	 * @param callLogLines String[]
+	 * @param callLogPath String[]
 	 */
 	public static void fillCollection(Collection<CallLog> callLogCollection, Path callLogPath) throws IOException {
 		Files.find(
